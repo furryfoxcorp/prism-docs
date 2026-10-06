@@ -3,6 +3,18 @@
 Recent changes to Prism, newest first. Feature docs live in the pages above; this page tracks
 behavioral and stability changes.
 
+## 2026-10-05 — Preview rendering and video playback
+
+### Preview
+- **Fixed choppy (~5 fps) video playback in the editor.** The preview relied on `MTKView`'s display
+  link, which stalls when the window is occluded or the app isn't frontmost — the same issue that
+  previously affected output windows. The preview is now driven by an explicit timer, so it renders
+  independently of window state.
+- **The preview is now a drop-frames control surface.** `Preview FPS` (default 30, 5–60) caps the
+  preview rate, and `Preview Scale` (Full / ½ / ¼) renders the composition at a reduced internal
+  resolution and upscales. Both live in **Project → Canvas**, and the preview can drop frames so the
+  UI and real outputs keep their configured framerate and resolution.
+
 ## 2026-10-05 — Output reliability, calibration crash, and a UI test harness
 
 ### Output windows
