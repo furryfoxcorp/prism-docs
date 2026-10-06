@@ -1,0 +1,68 @@
+site_name: Prism
+site_description: Native macOS projection mapping — multi-projector warp and blend, structured-light auto-calibration, 3D mapping, NDI/Syphon/SDI, HDR and timecode.
+site_url: https://furryfoxcorp.github.io/prism-docs/
+repo_url: https://github.com/furryfoxcorp/prism
+repo_name: furryfoxcorp/prism
+edit_uri: ""
+
+theme:
+  name: material
+  icon:
+    logo: material/projector
+    repo: fontawesome/brands/github
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - User Guide: user-guide.md
+  - Auto-Calibration: calibration.md
+  - 3D Mapping: 3d-mapping.md
+  - Audio: audio.md
+  - Timecode: timecode.md
+  - Control: control.md
+  - I/O & Codecs: io-codecs.md
+  - Architecture: architecture.md
+  - Roadmap: roadmap.md
