@@ -72,6 +72,17 @@ PRISM_HAP_TEST=/path/file.mov ./Prism    # FFmpeg HAP decode
 PRISM_AV_TEST=/path/audio.wav ./Prism    # recording audio mux
 ```
 
+## UI drive test
+
+`PRISM_DRIVE_TEST=1` launches the real app and drives every control through the Accessibility API
+— tool modes, toolbar toggles, menus, inspector tabs/toggles/sliders/picker, the timeline, and the
+per-output render pass — asserting each action against live state and reading rendered pixels back.
+Results are written to `/tmp/drive_results.txt`.
+
+```sh
+PRISM_DRIVE_TEST=1 swift run Prism
+```
+
 ## First run
 
 Prism opens the editor and, if you have a second display connected, an output window on it. See

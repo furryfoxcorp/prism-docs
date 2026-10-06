@@ -62,7 +62,15 @@ non-published live-value set and per-surface overrides, which are folded into an
 
 ## Verification
 
-`PRISM_SELFTEST=1` runs headless and exercises the whole stack — shader compilation, every
-pipeline, mesh/mask math, pixel readback, effects, structured-light decode, mesh solve, blend
-normalization, PnP/DLT, LTC, parameter resolution, and recording — so the math-heavy subsystems are
-covered without hardware.
+Two layers of automated verification:
+
+- **`PRISM_SELFTEST=1`** runs headless and exercises the whole stack — shader compilation, every
+  pipeline, mesh/mask math, pixel readback, effects, structured-light decode, mesh solve, blend
+  normalization, PnP/DLT, LTC, parameter resolution, and recording — so the math-heavy subsystems
+  are covered without hardware.
+- **`PRISM_DRIVE_TEST=1`** drives the real UI through the Accessibility API and verifies each
+  control against live state, plus reads back the actual `renderOutput` pass to confirm per-output
+  settings (edge blend, color, guides, test-pattern override, HDR) really change the output pixels.
+
+The one thing automated tests can't do is confirm the physical projector: the final WindowServer
+composite onto a display requires eyes on the hardware.

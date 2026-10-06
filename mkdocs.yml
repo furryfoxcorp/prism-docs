@@ -65,4 +65,5 @@ nav:
   - Control: control.md
   - I/O & Codecs: io-codecs.md
   - Architecture: architecture.md
+  - Changelog: changelog.md
   - Roadmap: roadmap.md
